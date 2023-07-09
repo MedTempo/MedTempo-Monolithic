@@ -9,7 +9,7 @@ export class SingleTabComponent {
   @Input() title: string = ``
   @Input() nome: string = ``
   @Input() icon: string = ``
-  @Input() color: string = `dark`
+  @Input() color: string = `light`
 
   constructor(){
     console.log(this.nome)

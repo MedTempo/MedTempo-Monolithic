@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+h2, h3, p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+img {
+    border-radius: 100%;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+ion-content {
+    padding: 5px;
+}
+
+.inicio {
+    display: flex;
+    align-items: center;
+}
+
+.nomeuser {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.caracteristicas {
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+h1 {
+    color: #2D516C;
+    font-weight: 600;
+}

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TabsRoutingModule } from './tabs-routing.module';
 import { TabsComponent } from './tabs.component';
 import { IonicModule } from '@ionic/angular';
-import { SingleTabModule } from '../single-tab/single-tab.module';
+import { SingleTabModule } from '../../../components/single-tab/single-tab.module';
 
 @NgModule({
   declarations: [

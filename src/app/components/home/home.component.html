@@ -1,0 +1,31 @@
+<ion-app>
+    <mdt-navbar></mdt-navbar>
+        <ion-content class="ion-padding">
+          <h1 class="titulo">BEM VINDO(A)!</h1>
+          <h2 class="subtitulo">José Filho da Silva </h2>
+          <h3 class="paragrafo">Fique sempre atento(a) aos seus medicamentos</h3>
+          <p class="paragrafo">AQUI VEM O RELOGIO</p>
+          <h1 class="subtitulo">O REMEDIO deve ser tomado às:</h1>
+          <h2 class="titulo">21:00hs</h2>
+  
+        <ion-item-divider></ion-item-divider>
+  
+          <h1 class="titulo">Medicamentos do dia</h1>
+          <h3 class="paragrafo">(Quarta-feira - 20/06)</h3>
+  
+        <div class="flex">
+          <ion-card *ngFor="let med of arr_medicamentos; index as i" class="cardRemedio">
+            <ion-card-header>
+                {{ i }}
+              <ion-card-title class="cardTitulo">{{ med.nome }}</ion-card-title>
+              <ion-card-subtitle class="cardSub">{{ med.horario }}</ion-card-subtitle>
+              <ion-label class="cardSub">{{ med.dosagem }}</ion-label>
+            </ion-card-header>
+  
+            <ion-button class="cardButton" [routerLink]="'/calendar'"> Saiba mais </ion-button>
+          </ion-card>
+  
+          </div>
+  
+      </ion-content>
+  </ion-app>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "MedTempo-Monolithic": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "www/",
+            "outputPath": "dist/med-tempo-monolithic",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -103,10 +103,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+              "browserTarget": "MedTempo-Monolithic:build:production"
             },
             "development": {
-              "browserTarget": "app:build:development"
+              "browserTarget": "MedTempo-Monolithic:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "MedTempo-Monolithic:build"
           }
         },
         "test": {
@@ -144,24 +144,24 @@
         "ionic-cordova-serve": {
           "builder": "@ionic/angular-toolkit:cordova-serve",
           "options": {
-            "cordovaBuildTarget": "app:ionic-cordova-build",
-            "devServerTarget": "app:serve"
+            "cordovaBuildTarget": "MedTempo-Monolithic:ionic-cordova-build",
+            "devServerTarget": "MedTempo-Monolithic:serve"
           },
           "configurations": {
             "production": {
-              "cordovaBuildTarget": "app:ionic-cordova-build:production",
-              "devServerTarget": "app:serve:production"
+              "cordovaBuildTarget": "MedTempo-Monolithic:ionic-cordova-build:production",
+              "devServerTarget": "MedTempo-Monolithic:serve:production"
             }
           }
         },
         "ionic-cordova-build": {
           "builder": "@ionic/angular-toolkit:cordova-build",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "MedTempo-Monolithic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+              "browserTarget": "MedTempo-Monolithic:build:production"
             }
           }
         }

@@ -1,0 +1,7 @@
+{
+  "name": "med-tempo-monolithic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

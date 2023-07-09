@@ -1,0 +1,56 @@
+
+  //@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,800;1,700&display=swap');
+  .scroll-y{
+      background-color: #2D516C;
+    }
+    
+    .cabecalho-menu{
+        flex-direction: row;
+        display:flex;
+      }
+    
+      .menu{
+        color: rgb(0, 0, 0);
+      }
+    
+      .titulo-principal{
+        color: #2D516C;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 5px;
+        padding: 7px;
+    
+      }
+    
+      .flex{
+        display: flex;
+        flex-direction: row;
+      }
+    
+    
+      .img-logo{
+        height: 40px;
+        width: 40px;
+        margin-top: 10px;
+        margin-left: 20px;
+        flex-direction: row;
+      }
+    
+      ion-title{
+        display: flex;
+        flex-direction: row;
+      }
+    
+      ion-menu::part(backdrop) {
+        background-color: #2D516C;
+      }
+    
+      ion-menu::part(container) {
+        border-radius: 0 20px 20px 0;
+    
+        box-shadow: 4px 0px 16px #2D516C;
+      }
+    
+      button-native{
+        background-color: #2D516C;
+      }

@@ -40,3 +40,16 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Builds
+
+www
+
+.android
+android
+
+
+# Angular Cache
+
+.angular

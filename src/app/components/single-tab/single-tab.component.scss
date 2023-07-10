@@ -1,0 +1,9 @@
+
+ion-tab-button {
+    --color: #fff !important;
+    --color-selected: #ffc409 !important;
+
+    &.tab-selected::before {
+      background-color: var(--ion-color-primary);
+    }
+  }

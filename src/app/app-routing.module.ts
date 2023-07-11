@@ -1,8 +1,8 @@
-import { isDevMode, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { isPlatform } from '@ionic/angular';
 import { AppModule } from './app.module';
 
+import { IsNotMobileService } from './services/router_guards/isPlataform/is-plataform.service';
 
 /*
 const routes: Routes = [
@@ -46,48 +46,56 @@ const routes: Routes = [
 ];
 */
 
-
 const routes: Routes = [
   {
     path: ``,
     loadChildren: async function () {
+      let { IndexModule } = await import('./pages/web/index/index.module');
 
-      let plataform: boolean = isPlatform(`mobile`)
+      console.log(IndexModule);
 
-      console.log(`is mobile ${plataform}`)
+      return IndexModule;
+    },
+    canActivate: [IsNotMobileService],
+  },
+  {
+    path: `app`,
+    loadChildren: async function () {
+      let { TabsModule } = await import('./pages/hybrid/tabs/tabs.module');
 
-      if (plataform === true || isDevMode()){
-        let { TabsModule } = await import('./pages/hybrid/tabs/tabs.module');
+      console.log(TabsModule);
 
-        console.log(TabsModule);
-  
-        return TabsModule;
-      }
-      else{
-        let { IndexModule } = await import('./pages/web/index/index.module');
-
-        console.log(IndexModule);
-  
-        return IndexModule;
-      }
-
-
+      return TabsModule;
     },
   },
   {
+    path: 'cadastro',
+    loadChildren: async function () {
+      let { CadastroModule } = await import(
+        './pages/hybrid/cadastro/cadastro.module'
+      );
+
+      console.log(CadastroModule);
+
+      return CadastroModule;
+    },
+    pathMatch: `full`,
+  },
+  {
     path: `**`,
-    loadChildren:
-    async function () {
-      let { NotFoundModule } = await import('./pages/web/not-found/not-found.module');
+    loadChildren: async function () {
+      let { NotFoundModule } = await import(
+        './pages/web/not-found/not-found.module'
+      );
 
       console.log(NotFoundModule);
 
       return NotFoundModule;
     },
-    pathMatch: `prefix`
+    pathMatch: `prefix`,
   },
-  { path: 'web', loadChildren: () => import('./pages/web/index/index.module').then(m => m.IndexModule) },
 
+  //{ path: 'web', loadChildren: () => import('./pages/web/index/index.module').then(m => m.IndexModule) },
 ];
 
 @NgModule({

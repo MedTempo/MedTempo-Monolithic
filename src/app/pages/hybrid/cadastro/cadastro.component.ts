@@ -32,7 +32,7 @@ export class CadastroComponent implements OnInit {
   }
 
   public async ngOnInit() {
-    let req = await this.back.readUser()
+    let req = await this.back.getData()
 
     await req.subscribe((res: any) => {
       this.usuarios = res.data.usuario_pessoal.values
@@ -59,7 +59,7 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  public async Delete(id: ){
-
+  public async Delete(user: string){
+    
   }
 }

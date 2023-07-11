@@ -7,11 +7,11 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export default class BackendConnectorService {
-  readonly api_url: string = `http://127.0.0:7777/`;
+  readonly api_url: string = `https://med-tempo-back.deno.dev/`;
 
   constructor(private http_client: HttpClient) {}
 
-  public async readUser() {
+  public async getData() {
     const data = await this.http_client.request(`GET`, this.api_url, {
       responseType: `json`,
     });

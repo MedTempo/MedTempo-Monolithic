@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { usuario_pessoal } from 'src/interfaces/usuarios';
 import { catchError } from 'rxjs';
@@ -7,7 +7,7 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export default class BackendConnectorService {
-  readonly api_url: string = `https://med-tempo-back.deno.dev/`;
+  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777` : `https://med-tempo-back.deno.dev/`;
 
   constructor(private http_client: HttpClient) {}
 

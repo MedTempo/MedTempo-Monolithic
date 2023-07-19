@@ -82,6 +82,19 @@ const routes: Routes = [
     pathMatch: `full`,
   },
   {
+    path: 'login',
+    loadChildren: async function () {
+      let { LoginModule } = await import(
+        './pages/hybrid/login/login.module'
+      );
+
+      console.log(LoginModule);
+
+      return LoginModule;
+    },
+    pathMatch: `full`,
+  },
+  {
     path: `**`,
     loadChildren: async function () {
       let { NotFoundModule } = await import(

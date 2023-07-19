@@ -1,0 +1,23 @@
+<form #event="ngForm" (ngSubmit)="Login(event)">
+  <select ngModel name="user_type" required>
+    <option selected [value]="1">Usuario Pessoal</option>
+    <option [value]="2">Médico</option>
+    <option [value]="3">Familha</option>
+  </select>
+
+  <input
+    type="email"
+    ngModel
+    name="email"
+    placeholder="insira email"
+    required
+  />
+  <input
+    type="password"
+    ngModel
+    name="senha"
+    placeholder="insira senha"
+    required
+  />
+  <input type="submit" value="cadastrar usuário" />
+</form>

@@ -1,0 +1,142 @@
+
+<div>
+    {{ res }}
+</div>
+
+<div>
+    <h2>Data:</h2>
+
+    <div v-if="pending">
+        Loading ...
+    </div>
+    <div v-else-if="error">
+        {{ error }}
+    </div>
+    <div v-else>
+        <div>
+            {{ usuarios }}
+
+        </div>
+    </div>
+
+</div>
+
+<div v-for="(user, i) in usuarios?.data.usuario_pessoal.values">
+
+    {{ i }}
+
+    <h5>Id: {{ user.id }}</h5>
+    <h1>Nome: {{ user.nome }}</h1>
+    <p>Idade: {{ user.idade }}</p>
+
+    <p>Sexo: {{ user.sexo === true ? `Feminino` : `Masculino` }}</p>
+
+    <p>Email: {{ user.email }}</p>
+    <p>Senha Hash: {{ user.senha }}</p>
+
+    <p>Data de Nascimento: {{ user.data_nascimento }}</p>
+    <p>Data de Criacao: {{ user.data_criacao }}</p>
+
+    <p>Descriacao: {{ user.descricao }}</p>
+
+    <input :value="`Delete ${user.nome}`" type="button" @click="Delete(user.id)">
+
+    <hr>
+
+</div>
+
+
+<div>
+    <h1> UPDATE </h1>
+
+    <div v-for="(usuario, i) in usuario_patch">
+        <form>
+
+            {{ i }}
+
+            <input type="text" @input="usuario_patch[i].nome = $event.target?.value" :value="usuario.nome" name="nome"
+                placeholder="insira nome" id="" required>
+            <input type="text" @input="usuario_patch[i].sobrenome = $event.target?.value" :value="usuario.sobrenome"
+                name="sobrenome" placeholder="insira sobrenome" id="" required>
+            <input type="text" @input="usuario_patch[i].idade = parseInt($event.target?.value)"
+                :value.number="usuario.idade" name="idade" placeholder="insira idade" id="" required>
+
+            <select
+                @input="$event.target?.value == `true` ? usuario_patch[i].sexo = true : ($event.target?.value == `false` ? usuario_patch[i].sexo = false : null);"
+                :value="usuario.sexo">
+                <option disabled value="">Insira seu Sexo</option>
+                <option v-bind:value="true">Feminino</option>
+                <option v-bind:value="false">Masculino</option>
+            </select>?
+
+            <input type="email" @input="usuario_patch[i].email = $event.target?.value" :value="usuario.email"
+                name="email" placeholder="insira email" id="" required>
+            <input type="password" :value="usuario.senha" name="senha" placeholder="insira senha" id="" required />
+
+            <input type="date" @input="usuario_patch[i].data_nascimento = $event.target?.value"
+                :value="usuario.data_nascimento" name="data_nascimento" placeholder="insira data de nascimento" id=""
+                required>
+
+
+            <textarea @input="usuario_patch[i].descricao = $event.target?.value" :value="usuario.descricao"
+                name="descricao" placeholder="insira descricao" id="" required cols="30" rows="10"></textarea>
+
+            <input :value="`Update ` + usuario.id" @click="usuario_patch[i].id = usuario.id; Patch(usuario_patch[i])"
+                type="button" />
+        </form>
+
+    </div>
+
+
+    {{
+
+        usuario_patch
+    }}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form (ngSubmit)="Send()">
+
+    <input type="text" [(ngModel)]="usr.nome" name="nome" placeholder="insira nome" id="" required>
+    <input type="text" [(ngModel)]="usr.sobrenome" name="sobrenome" placeholder="insira sobrenome" id="" required>
+    <input type="text" [(ngModel)]="usr.idade" name="idade" placeholder="insira idade" id="" required>
+
+    <select [(ngModel)]="usr.sexo" name="sexo">
+        <option disabled value="">Insira seu Sexo</option>
+        <option v-bind:value="true">Feminino</option>
+        <option v-bind:value="false">Masculino</option>
+    </select>
+
+    <input type="email" [(ngModel)]="usr.email" name="email" placeholder="insira email" id="" required>
+    <input type="password" [(ngModel)]="usr.senha" name="senha" placeholder="insira senha" id="" required />
+
+    <input type="date" [(ngModel)]="usr.data_nascimento" name="data_nascimento" placeholder="insira data de nascimento"
+        id="" required>
+
+
+    <textarea [(ngModel)]="usr.descricao" name="descricao" placeholder="insira descricao" id="" required cols="30"
+        rows="10"></textarea>
+
+    <input value="Send to Back" type="button" />
+</form>
+

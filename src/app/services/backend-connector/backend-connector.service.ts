@@ -7,12 +7,13 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export default class BackendConnectorService {
-  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777` : `https://med-tempo-back.deno.dev/`;
+  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777/` : `https://med-tempo-back.deno.dev/`;
 
   constructor(private http_client: HttpClient) {}
 
-  public async getData() {
-    const data = await this.http_client.request(`GET`, this.api_url, {
+
+  public async getData(complemento: string) {
+    const data = await this.http_client.request(`GET`, `${this.api_url}${complemento}`, {
       responseType: `json`,
     });
 
@@ -21,10 +22,10 @@ export default class BackendConnectorService {
     return data;
   }
 
-  public async createUser(usr: usuario_pessoal) {
+  public async create(usr: usuario_pessoal, complemento: string) {
     const data = await this.http_client.request(
       `POST`,
-      `${this.api_url}usuarios`,
+      `${this.api_url}${complemento}`,
       {
         headers: {
           'Content-Type': 'application/json',

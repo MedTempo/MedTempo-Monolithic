@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
 
 
   async ngOnInit() {
-    this.data = await this.back.getData()
+    this.data = await this.back.getData(`user-pessoal`)
     
     await this.data.subscribe((res: req_user_pessoal)=>{
       this.value = res.data.usuario_pessoal.values

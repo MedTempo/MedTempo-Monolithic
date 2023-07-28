@@ -14,6 +14,7 @@ export interface usuario_pessoal {
     descricao: string;
   }
   
-  export interface req_user_pessoal {
-    data: { "usuario_pessoal": { values: Array<usuario_pessoal> } };
-  }
+export interface req_user_pessoal {
+  data: { "usuario_pessoal": { values: Array<usuario_pessoal> } };
+}
+

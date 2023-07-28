@@ -4,6 +4,7 @@ import BackendConnectorService from 'src/app/services/backend-connector/backend-
 import { req_user_pessoal, usuario_pessoal } from 'src/interfaces/usuarios';
 
 import { Router } from '@angular/router';
+import usr_type from 'src/interfaces/usr_type';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,6 +16,8 @@ export class CadastroComponent implements OnInit {
   usr: usuario_pessoal
 
   usuarios?: Array<usuario_pessoal>
+
+  usr_type: usr_type = 1
 
   constructor(private back: BackendConnectorService, private router: Router){
     this.usr = {
@@ -39,12 +42,7 @@ export class CadastroComponent implements OnInit {
     await req.subscribe((res: any) => {
       this.usuarios = res.data.usuario_pessoal.values
     })
-    
-    let req2 = await this.back.getData(``)
-
-    await req2.subscribe((res: any) => {
-      console.log(res)
-    })
+ 
   }
 
 

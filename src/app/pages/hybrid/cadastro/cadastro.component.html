@@ -5,7 +5,68 @@
 
     <!-- Por favor estilizem isso -->
 
-    <form #event="ngForm" (ngSubmit)="Create(event)">
+
+    <div>
+        <input type="button" value="Usuário Pessoal" (click)="usr_type = 1">
+        <input type="button" value="Usuário Especialista" (click)="usr_type = 2">
+        <input type="button" value="Usuário Pessoal" (click)="usr_type = 3">
+    </div>
+
+
+    <form *ngIf="usr_type == 1" #event="ngForm" (ngSubmit)="Create(event)">
+        <p>Usuário Pessoal</p>
+        <input type="text" ngModel name="nome" placeholder="insira nome" required>
+        <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
+        <input type="number" ngModel name="idade" placeholder="insira idade" required>
+    
+        <select ngModel name="sexo" required>
+            <option selected disabled value="">Insira seu Sexo</option>
+            <option [value]="true">Feminino</option>
+            <option [value]="false">Masculino</option>
+        </select>
+    
+        <input type="email" ngModel name="email" placeholder="insira email" required>
+        <input type="password" ngModel name="senha" placeholder="insira senha" required />
+    
+        <input type="date" ngModel name="data_nascimento" placeholder="insira data de nascimento"
+        required>
+    
+    
+    <textarea ngModel name="descricao" placeholder="insira descricao" required cols="30"
+        rows="10"></textarea>
+    
+        <input type="submit" value="cadastrar usuário">
+    </form>
+
+
+    <form *ngIf="usr_type == 2" #event="ngForm" (ngSubmit)="Create(event)">
+        <p>Usuário Especialista</p>
+        <input type="text" ngModel name="nome" placeholder="insira nome" required>
+        <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
+        <input type="number" ngModel name="idade" placeholder="insira idade" required>
+    
+        <select ngModel name="sexo" required>
+            <option selected disabled value="">Insira seu Sexo</option>
+            <option [value]="true">Feminino</option>
+            <option [value]="false">Masculino</option>
+        </select>
+    
+        <input type="email" ngModel name="email" placeholder="insira email" required>
+        <input type="password" ngModel name="senha" placeholder="insira senha" required />
+    
+        <input type="date" ngModel name="data_nascimento" placeholder="insira data de nascimento"
+        required>
+    
+    
+    <textarea ngModel name="descricao" placeholder="insira descricao" required cols="30"
+        rows="10"></textarea>
+    
+        <input type="submit" value="cadastrar usuário">
+    </form>
+
+
+    <form *ngIf="usr_type == 3" #event="ngForm" (ngSubmit)="Create(event)">
+        <p>Usuário Especialista</p>
         <input type="text" ngModel name="nome" placeholder="insira nome" required>
         <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
         <input type="number" ngModel name="idade" placeholder="insira idade" required>

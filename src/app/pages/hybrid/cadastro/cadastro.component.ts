@@ -27,7 +27,6 @@ export class CadastroComponent implements OnInit {
       "descricao": "",
       "email": "",
       "senha": "",
-      "idade": 0,
       "nome": "",
       "sexo": null,
       "sobrenome": ""
@@ -46,7 +45,7 @@ export class CadastroComponent implements OnInit {
   }
 
 
-  public async Create($event: NgForm){
+  public async Create($event: NgForm, url: string){
     console.log(this.usuarios)
     console.log($event.value)
 
@@ -58,7 +57,7 @@ export class CadastroComponent implements OnInit {
 
 
     if($event.valid){
-      let req = await this.back.create(this.usr, `user-pessoal`)
+      let req = await this.back.create(this.usr, url)
 
 
       await req.subscribe((res: any)=>{

@@ -9,15 +9,14 @@
     <div>
         <input type="button" value="Usuário Pessoal" (click)="usr_type = 1">
         <input type="button" value="Usuário Especialista" (click)="usr_type = 2">
-        <input type="button" value="Usuário Pessoal" (click)="usr_type = 3">
+        <input type="button" value="Usuário Familhar" (click)="usr_type = 3">
     </div>
 
 
-    <form *ngIf="usr_type == 1" #event="ngForm" (ngSubmit)="Create(event)">
+    <form *ngIf="usr_type == 1" #event="ngForm" (ngSubmit)="Create(event, 'user-pessoal')">
         <p>Usuário Pessoal</p>
         <input type="text" ngModel name="nome" placeholder="insira nome" required>
         <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
-        <input type="number" ngModel name="idade" placeholder="insira idade" required>
     
         <select ngModel name="sexo" required>
             <option selected disabled value="">Insira seu Sexo</option>
@@ -39,54 +38,47 @@
     </form>
 
 
-    <form *ngIf="usr_type == 2" #event="ngForm" (ngSubmit)="Create(event)">
+    <form *ngIf="usr_type == 2" #event="ngForm" (ngSubmit)="Create(event, 'user-especialista')">
         <p>Usuário Especialista</p>
         <input type="text" ngModel name="nome" placeholder="insira nome" required>
         <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
-        <input type="number" ngModel name="idade" placeholder="insira idade" required>
     
         <select ngModel name="sexo" required>
             <option selected disabled value="">Insira seu Sexo</option>
             <option [value]="true">Feminino</option>
             <option [value]="false">Masculino</option>
         </select>
+
+        <input type="text" ngModel name="crm" placeholder="insira crm" required>
+        <input type="text" ngModel name="local_trabalho" placeholder="insira local de trabalho" required>
     
         <input type="email" ngModel name="email" placeholder="insira email" required>
         <input type="password" ngModel name="senha" placeholder="insira senha" required />
     
         <input type="date" ngModel name="data_nascimento" placeholder="insira data de nascimento"
         required>
-    
-    
-    <textarea ngModel name="descricao" placeholder="insira descricao" required cols="30"
-        rows="10"></textarea>
-    
         <input type="submit" value="cadastrar usuário">
     </form>
 
 
-    <form *ngIf="usr_type == 3" #event="ngForm" (ngSubmit)="Create(event)">
-        <p>Usuário Especialista</p>
+    <form *ngIf="usr_type == 3" #event="ngForm" (ngSubmit)="Create(event, 'user-familhar')">
+        <p>Usuário Familhar</p>
         <input type="text" ngModel name="nome" placeholder="insira nome" required>
         <input type="text" ngModel name="sobrenome" placeholder="insira sobrenome" required>
-        <input type="number" ngModel name="idade" placeholder="insira idade" required>
     
         <select ngModel name="sexo" required>
             <option selected disabled value="">Insira seu Sexo</option>
             <option [value]="true">Feminino</option>
             <option [value]="false">Masculino</option>
         </select>
+
+        <input type="text" ngModel name="local_trabalho" placeholder="insira local de trabalho" required>
     
         <input type="email" ngModel name="email" placeholder="insira email" required>
         <input type="password" ngModel name="senha" placeholder="insira senha" required />
     
         <input type="date" ngModel name="data_nascimento" placeholder="insira data de nascimento"
         required>
-    
-    
-    <textarea ngModel name="descricao" placeholder="insira descricao" required cols="30"
-        rows="10"></textarea>
-    
         <input type="submit" value="cadastrar usuário">
     </form>
     
@@ -100,12 +92,12 @@
     
         <h5>Id: {{ user.id }}</h5>
         <h1>Nome: {{ user.nome }}</h1>
-        <p>Idade: {{ user.idade }}</p>
+        <!--<p>Idade: {{ user.idade }}</p>-->
     
         <p>Sexo: {{ user.sexo === true ? "Feminino" : "Masculino" }}</p>
     
         <p>Email: {{ user.email }}</p>
-        <p>Senha Hash: {{ user.senha }}</p>
+        <p>Senha Hash: {{ user.hash_senha }}</p>
     
         <p>Data de Nascimento: {{ user.data_nascimento }}</p>
         <p>Data de Criacao: {{ user.data_criacao }}</p>

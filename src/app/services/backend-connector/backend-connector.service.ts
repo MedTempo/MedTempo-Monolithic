@@ -7,7 +7,7 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export default class BackendConnectorService {
-  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777/` : `https://med-tempo-back.deno.dev/`;
+  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777/` : `https://medtempo-backend.onrender.com`;
 
   constructor(private http_client: HttpClient) {}
 
@@ -15,6 +15,7 @@ export default class BackendConnectorService {
   public async getData(complemento: string) {
     const data = await this.http_client.request(`GET`, `${this.api_url}${complemento}`, {
       responseType: `json`,
+      withCredentials: true
     });
 
     //console.log(data)
@@ -31,7 +32,28 @@ export default class BackendConnectorService {
           'Content-Type': 'application/json',
         },
 
-        body: usr
+        body: usr,
+
+      }
+    )
+
+      console.log(data)
+
+    return data;
+  }
+
+  public async login(usr: usuario_pessoal, complemento: string) {
+    const data = await this.http_client.request(
+      `POST`,
+      `${this.api_url}${complemento}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        body: usr,
+        withCredentials: true
+
       }
     )
 

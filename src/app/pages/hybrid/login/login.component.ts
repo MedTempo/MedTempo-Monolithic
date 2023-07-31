@@ -39,7 +39,7 @@ export class LoginComponent {
 
 
     if($event.valid){
-      let req = await this.back.create(this.usr, `login`)
+      let req = await this.back.login(this.usr, `login`)
 
 
       await req.subscribe((res: any)=>{

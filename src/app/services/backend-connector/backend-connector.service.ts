@@ -7,7 +7,7 @@ import { catchError } from 'rxjs';
   providedIn: 'root',
 })
 export default class BackendConnectorService {
-  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777/` : `https://medtempo-backend.onrender.com`;
+  readonly api_url: string = isDevMode() ? `http://127.0.0.1:7777/` : `https://medtempo-backend.onrender.com/`;
 
   constructor(private http_client: HttpClient) {}
 

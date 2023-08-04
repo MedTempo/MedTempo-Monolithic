@@ -1,9 +1,18 @@
+<ion-app>
+  <header>
+    <div class="cabecalho">
+        <ion-img class="img-logo"src="assets/image/logo.png"alt="Logo"></ion-img>
+        <ion-title class="titulo-principal">MedTempo</ion-title>
+      </div>
+  </header>
+
 <form #event="ngForm" (ngSubmit)="Login(event)">
   <select ngModel name="user_type" required>
     <option selected [value]="1">Usuario Pessoal</option>
     <option [value]="2">Médico</option>
     <option [value]="3">Familha</option>
   </select>
+
 
   <input
     type="email"
@@ -21,3 +30,5 @@
   />
   <input type="submit" value="cadastrar usuário" />
 </form>
+
+</ion-app>
